@@ -18,6 +18,9 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
 app.use(bodyParser.json())
 
+app.get('/get', async (req, res) => {
+  console.log("it works");
+});
 
 app.post('/create-checkout-session', async (req, res) => {
 
@@ -45,4 +48,4 @@ app.post('/create-checkout-session', async (req, res) => {
   res.json({ id: session.id });
 });
 
-app.listen(4242, () => console.log(`Listening on port ${4242}!`));
+app.listen(process.env.PORT || 4242 , () => console.log(`Listening on port ${4242}!`));

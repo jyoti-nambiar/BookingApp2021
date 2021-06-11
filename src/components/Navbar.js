@@ -15,7 +15,7 @@ useEffect(()=>{
  const count=localStorage.getItem("numberOfBooking");
     setCount(count);
  
-},[bookingCount]);
+},[]);
 
 
 

@@ -153,7 +153,7 @@ if (result.error) {
                                         <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="date">Date</label>
                                         <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline my-2" type="date" name="date" value={formValues.date} onChange={handleOnChange} />
                                         <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="time">Preferred Time</label>
-                                        <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline my-2" type="time" name="time"  min="09:00" max="18:00" required value={formValues.time} onChange={handleOnChange} />
+                                        <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline my-2" type="time" name="time"  min="09:00" max="18:00" step="1" required value={formValues.time} onChange={handleOnChange} />
                                         
                                         <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" >Submit</button>
 

@@ -24,7 +24,7 @@ function UploadFile() {
         data.append("files", fileData);
 
 
-        const response = await axios.post("https://localhost:1337/upload", data
+        const response = await axios.post("http://localhost:1337/upload", data
         );
         console.log(response);
 

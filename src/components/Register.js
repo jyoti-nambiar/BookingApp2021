@@ -34,7 +34,7 @@ function Register() {
 
 
         // ska skickas till database via api /Api endpoint
-        axios.post('https://localhost:1337/auth/local/register', {
+        axios.post('http://localhost:1337/auth/local/register', {
             username: formValues.username,
             email: formValues.email,
             password: formValues.password,

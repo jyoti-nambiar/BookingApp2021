@@ -11,7 +11,7 @@ function CardList() {
     const userId=localStorage.getItem("userId");
     useEffect(() => {
         const fetchProduct = async () => {
-            const response = await axios.get(`https://localhost:1337/products?_limit=${loadMore}`);
+            const response = await axios.get(`http://localhost:1337/products?_limit=${loadMore}`);
         console.log(response.data);
             setProduct(response.data);
 
@@ -37,7 +37,7 @@ function CardList() {
 
 function deleteItem(id) {
 //console.log("This is serviceId",id);
-axios.delete(`https://localhost:1337/products/${id}?users_permissions_user.id=${userId}`, {
+axios.delete(`http://localhost:1337/products/${id}?users_permissions_user.id=${userId}`, {
     headers: {
       Authorization: `Bearer ${token}`,
       
@@ -60,7 +60,7 @@ axios.delete(`https://localhost:1337/products/${id}?users_permissions_user.id=${
             {products.map((service) => {
                 //console.log(service.image.formats.small.url);
                 
-                return (<Card key={service.id} serviceId={service.id} image={`https://localhost:1337${service.image.formats.thumbnail.url}`} description={service.description} name={service.name} price={service.price} btnName="Book" onDelete={deleteItem} />)
+                return (<Card key={service.id} serviceId={service.id} image={`http://localhost:1337${service.image.formats.thumbnail.url}`} description={service.description} name={service.name} price={service.price} btnName="Book" onDelete={deleteItem} />)
 
 
             })

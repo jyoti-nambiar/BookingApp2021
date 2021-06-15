@@ -85,7 +85,7 @@ console.log("This is the uploaded image",e.target.files[0]);
         
         //load data in user-bookings in strapi
         
-        axios.post("https://localhost:1337/user-bookings", {
+        axios.post("http://localhost:1337/user-bookings", {
             name: username,
             date: formValues.date,
             time: formValues.time,
@@ -138,7 +138,7 @@ function openModalUpdate() {
 
 function updateItem(){
 
-axios.put(`https://localhost:1337/products/${serviceId}?users_permissions_user.id=${userId}`,{
+axios.put(`http://localhost:1337/products/${serviceId}?users_permissions_user.id=${userId}`,{
             name: formValuesUpdate.serviceName,
             description: formValuesUpdate.description,
             price: formValuesUpdate.price
@@ -155,7 +155,7 @@ axios.put(`https://localhost:1337/products/${serviceId}?users_permissions_user.i
             data.append("refId", res.data.id)//which data it refers to 
             data.append("field", "image")// which field it refers to in the db
 
-            axios.post("https://localhost:1337/upload", data
+            axios.post("http://localhost:1337/upload", data
             ).then((res) => { console.log(res) }).catch((err) => { console.log(err) })
 
 

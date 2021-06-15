@@ -39,7 +39,7 @@ setJwt(JWT);
 
         // ska skickas till database via api /Api endpoint
         axios
-            .post('https://localhost:1337/auth/local', {
+            .post('http://localhost:1337/auth/local', {
                 identifier: formValues.username,
                 password: formValues.password
             })

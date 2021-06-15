@@ -84,6 +84,7 @@ console.log("This is the uploaded image",e.target.files[0]);
         closeModal();
         
         //load data in user-bookings in strapi
+        
         axios.post("http://localhost:1337/user-bookings", {
             name: username,
             date: formValues.date,
@@ -93,8 +94,11 @@ console.log("This is the uploaded image",e.target.files[0]);
             img:url,
             product: serviceId,
             users_permissions_user: userId
-        }
-        ).then((res) => {
+        },{
+    headers: {
+      Authorization: `Bearer ${token}`,
+      
+    }}).then((res) => {
             console.log("this is the reponse after upload",res);
 
         }).catch((err) => {

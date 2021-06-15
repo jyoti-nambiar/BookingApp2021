@@ -12,7 +12,7 @@ function CardList() {
     useEffect(() => {
         const fetchProduct = async () => {
             const response = await axios.get(`http://localhost:1337/products?_limit=${loadMore}`);
-            //console.log(response.data);
+        console.log(response.data);
             setProduct(response.data);
 
         }
@@ -59,6 +59,7 @@ axios.delete(`http://localhost:1337/products/${id}?users_permissions_user.id=${u
 
             {products.map((service) => {
                 //console.log(service.image.formats.small.url);
+                
                 return (<Card key={service.id} serviceId={service.id} image={`http://localhost:1337${service.image.formats.thumbnail.url}`} description={service.description} name={service.name} price={service.price} btnName="Book" onDelete={deleteItem} />)
 
 

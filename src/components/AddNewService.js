@@ -29,7 +29,7 @@ console.log("This is the uploaded image",e.target.files[0]);
 
     function handleOnSubmit(e) {
         e.preventDefault();
-        axios.post(`http://localhost:1337/products?users_permissions_user.id=${userId}`, {
+        axios.post(`https://localhost:1337/products?users_permissions_user.id=${userId}`, {
             name: formValues.serviceName,
             description: formValues.description,
             price: formValues.price
@@ -47,7 +47,7 @@ console.log("This is the uploaded image",e.target.files[0]);
             data.append("refId", response.data.id)//which data it refers to 
             data.append("field", "image")// which field it refers to in the db
 
-            axios.post("http://localhost:1337/upload", data
+            axios.post("https://localhost:1337/upload", data
             ).then((res) => { console.log(res) }).catch((err) => { console.log(err) })
 
 

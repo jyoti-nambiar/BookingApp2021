@@ -29,7 +29,7 @@ const [formValues, setFormValues] = useState(initialValues);
     function deleteFunc(){
       setBtnClicked(true);   
    
-axios.delete(`http://localhost:1337/user-bookings/${cardId}`, {
+axios.delete(`https://localhost:1337/user-bookings/${cardId}`, {
     headers: {
       Authorization: `Bearer ${token}`,
       
@@ -48,7 +48,7 @@ axios.delete(`http://localhost:1337/user-bookings/${cardId}`, {
 //reschedule (update request)
 function reschedule(e){
   e.preventDefault();
-axios.put(`http://localhost:1337/user-bookings/${cardId}`, {
+axios.put(`https://localhost:1337/user-bookings/${cardId}`, {
             date: formValues.date,
             time: formValues.time
 
@@ -104,7 +104,7 @@ const handleClick = async (event) => {
     const stripe = await stripePromise;
 
     // Call your backend to create the Checkout Session
-    const response = await axios.post('http://localhost:4242/create-checkout-session', {product:product, price:price});
+    const response = await axios.post('https://localhost:4242/create-checkout-session', {product:product, price:price});
 //console.log(response.data);
     const sessionId = response.data.id;
     

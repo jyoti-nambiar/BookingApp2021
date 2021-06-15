@@ -16,7 +16,7 @@ function ForgotPassword() {
         e.preventDefault();
         console.log(formValue);
         axios
-            .post('http://localhost:1337/auth/forgot-password', {
+            .post('https://localhost:1337/auth/forgot-password', {
                 email: formValue.email // user's email
             })
             .then(response => {

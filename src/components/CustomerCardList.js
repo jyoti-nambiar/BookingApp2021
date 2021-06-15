@@ -11,7 +11,7 @@ function CustomerCardList() {
     useEffect(() => {
 
         const fetchCustomer = async () => {
-            const response = await axios.get("http://localhost:1337/customers");
+            const response = await axios.get("https://localhost:1337/customers");
 
            // console.log(response.data);
             setCustomer(response.data);
@@ -30,7 +30,7 @@ function CustomerCardList() {
         <div className="flex flex-row p-20 justify-center align-center ">
             {customer.map((customer) => {
                 //console.log(customer.image.formats.thumbnail.url)
-                return (<CustomerCard key={customer.id} image={`http://localhost:1337${customer.image.formats.thumbnail.url}`} customerName={customer.name} content={customer.comment} />)
+                return (<CustomerCard key={customer.id} image={`https://localhost:1337${customer.image.formats.thumbnail.url}`} customerName={customer.name} content={customer.comment} />)
 
 
             })

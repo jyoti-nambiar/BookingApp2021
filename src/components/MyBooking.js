@@ -15,7 +15,7 @@ const token=localStorage.getItem("jwt");
   useEffect(()=>{
 const fetchData= async ()=>{
 
-const response=await axios.get(`http://localhost:1337/user-bookings?users_permissions_user.id=${userId}`, {
+const response=await axios.get(`https://localhost:1337/user-bookings?users_permissions_user.id=${userId}`, {
     headers: {
       Authorization: `Bearer ${token}`,
     }});

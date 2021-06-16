@@ -10,8 +10,9 @@ function CardList() {
     const token=localStorage.getItem("jwt");
     const userId=localStorage.getItem("userId");
     useEffect(() => {
+        console.log(process.env.URL);
         const fetchProduct = async () => {
-            const response = await axios.get(`process.env.NODE_ENV/products?_limit=${loadMore}`);
+            const response = await axios.get(`process.env.URL/products?_limit=${loadMore}`);
         console.log(response.data);
             setProduct(response.data);
 

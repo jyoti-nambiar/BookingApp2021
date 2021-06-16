@@ -134,7 +134,7 @@ function openModalUpdate() {
 
 function updateItem(){
 
-axios.put(`http://localhost:1337/products/${serviceId}?users_permissions_user.id=${userId}`,{
+axios.put(`https://pik-span-strapi.herokuapp.com/products/${serviceId}?users_permissions_user.id=${userId}`,{
             name: formValuesUpdate.serviceName,
             description: formValuesUpdate.description,
             price: formValuesUpdate.price
@@ -151,7 +151,7 @@ axios.put(`http://localhost:1337/products/${serviceId}?users_permissions_user.id
             data.append("refId", res.data.id)//which data it refers to 
             data.append("field", "image")// which field it refers to in the db
 
-            axios.post("http://localhost:1337/upload", data
+            axios.post("https://pik-span-strapi.herokuapp.com/upload", data
             ).then((res) => { console.log(res) }).catch((err) => { console.log(err) })
 
 

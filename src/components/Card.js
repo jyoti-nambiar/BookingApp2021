@@ -85,7 +85,7 @@ console.log("This is the uploaded image",e.target.files[0]);
         
         //load data in user-bookings in strapi
         
-        axios.post("http://localhost:1337/user-bookings", {
+        axios.post("https://pik-span-strapi.herokuapp.com/user-bookings", {
             name: username,
             date: formValues.date,
             time: formValues.time,

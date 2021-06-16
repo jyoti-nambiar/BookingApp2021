@@ -11,7 +11,7 @@ function CardList() {
     const userId=localStorage.getItem("userId");
     useEffect(() => {
         const fetchProduct = async () => {
-            const response = await axios.get(`http://localhost:1337/products?_limit=${loadMore}`);
+            const response = await axios.get(`/products?_limit=${loadMore}`);
         console.log(response.data);
             setProduct(response.data);
 

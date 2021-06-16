@@ -151,7 +151,7 @@ axios.put(`https://pik-span-strapi.herokuapp.com/products/${serviceId}?users_per
             data.append("refId", res.data.id)//which data it refers to 
             data.append("field", "image")// which field it refers to in the db
 
-            axios.post("https://pik-span-strapi.herokuapp.com/upload", data
+            axios.put("https://pik-span-strapi.herokuapp.com/upload", data
             ).then((res) => { console.log(res) }).catch((err) => { console.log(err) })
 
 

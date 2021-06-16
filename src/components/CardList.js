@@ -10,9 +10,8 @@ function CardList() {
     const token=localStorage.getItem("jwt");
     const userId=localStorage.getItem("userId");
     useEffect(() => {
-        console.log(process.env.URL);
         const fetchProduct = async () => {
-            const response = await axios.get(`process.env.URL/products?_limit=${loadMore}`);
+            const response = await axios.get(`https://pik-span-strapi.herokuapp.com/products?_limit=${loadMore}`);
         console.log(response.data);
             setProduct(response.data);
 
@@ -38,7 +37,7 @@ function CardList() {
 
 function deleteItem(id) {
 //console.log("This is serviceId",id);
-axios.delete(`http://localhost:1337/products/${id}?users_permissions_user.id=${userId}`, {
+axios.delete(`https://pik-span-strapi.herokuapp.com/products/${id}?users_permissions_user.id=${userId}`, {
     headers: {
       Authorization: `Bearer ${token}`,
       
@@ -61,7 +60,7 @@ axios.delete(`http://localhost:1337/products/${id}?users_permissions_user.id=${u
             {products.map((service) => {
                 //console.log(service.image.formats.small.url);
                 
-                return (<Card key={service.id} serviceId={service.id} image={`http://localhost:1337${service.image.formats.thumbnail.url}`} description={service.description} name={service.name} price={service.price} btnName="Book" onDelete={deleteItem} />)
+                return (<Card key={service.id} serviceId={service.id} image={`https://pik-span-strapi.herokuapp.com${service.image.formats.thumbnail.url}`} description={service.description} name={service.name} price={service.price} btnName="Book" onDelete={deleteItem} />)
 
 
             })

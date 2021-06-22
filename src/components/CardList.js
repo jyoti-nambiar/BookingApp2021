@@ -7,17 +7,19 @@ function CardList() {
     const [products, setProduct] = useState([]);
     const [loadMore, setLoadMore] = useState(6);
     const [cardDelete, setcardDelete]=useState(false);
+    const [loading, setLoading]=useState(false);
     const token=localStorage.getItem("jwt");
     const userId=localStorage.getItem("userId");
     useEffect(() => {
         const fetchProduct = async () => {
+            setLoading(true);
             const response = await axios.get(`https://pik-span-strapi.herokuapp.com/products?_limit=${loadMore}`);
         console.log(response.data);
             setProduct(response.data);
 
         }
         fetchProduct();
-
+setLoading(false);
     }, [loadMore]);
 
     function loadMoreService() {
@@ -55,7 +57,8 @@ axios.delete(`https://pik-span-strapi.herokuapp.com/products/${id}?users_permiss
 
     return (
         <div className="grid grid-cols-3 gap-10 content-evenly m-10   ">
-
+{loading &&
+<p>loading...</p>}
 
             {products.map((service) => {
                 //console.log(service.image.formats.small.url);

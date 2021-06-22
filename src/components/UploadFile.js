@@ -13,9 +13,6 @@ function UploadFile() {
     }
 
 
-
-
-
     async function fileUpload(e) {
         e.preventDefault();
         console.log(fileData);

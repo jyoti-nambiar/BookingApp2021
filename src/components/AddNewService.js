@@ -20,10 +20,22 @@ const token=localStorage.getItem("jwt");
 
     }
     function handleUploadImage(e) {
-console.log("This is the uploaded image",e.target.files[0]);
-        setUploadImage(e.target.files[0])
+const cloudName="spik-span";
+ var url = `https://api.cloudinary.com/v1_1/${cloudName}/upload`;
+  var fd = new FormData();
+  fd.append("upload_preset", "bookingapp");
+  fd.append("file", e.target.files[0]);
+  const config = {
+    headers: { "X-Requested-With": "XMLHttpRequest" },
+  };
+  axios.post(url, fd, config)
+     .then(function (res) {
+     console.log(res);
+    setUploadImage(res.data.secure_url);
 
+}).catch(function (err) {console.log(err)});
 
+    
     }
 
 
@@ -32,25 +44,15 @@ console.log("This is the uploaded image",e.target.files[0]);
         axios.post(`https://pik-span-strapi.herokuapp.com/products?users_permissions_user.id=${userId}`, {
             name: formValues.serviceName,
             description: formValues.description,
-            price: formValues.price
+            price: formValues.price,
+            image:uploadImage
         },{
     headers: {
       Authorization: `Bearer ${token}`,
       
     }}).then((response) => {
-            console.log(response.data)
-            const data = new FormData();
-
-            data.append("files", uploadImage);
-
-            data.append("ref", "product") // collection it belongs in db, here its product
-            data.append("refId", response.data.id)//which data it refers to 
-            data.append("field", "image")// which field it refers to in the db
-
-            axios.post("https://pik-span-strapi.herokuapp.com/upload", data
-            ).then((res) => { console.log(res) }).catch((err) => { console.log(err) })
-
-
+            //console.log(response.data)
+            
         }).catch((err) => console.log(err));
 
 

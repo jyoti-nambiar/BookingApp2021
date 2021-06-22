@@ -63,7 +63,7 @@ axios.delete(`https://pik-span-strapi.herokuapp.com/products/${id}?users_permiss
             {products.map((service) => {
                 //console.log(service.image.formats.small.url);
                 
-                return (<Card key={service.id} serviceId={service.id} image={`https://pik-span-strapi.herokuapp.com${service.image.formats.thumbnail.url}`} description={service.description} name={service.name} price={service.price} btnName="Book" onDelete={deleteItem} />)
+                return (<Card key={service.id} serviceId={service.id} image={service.image} description={service.description} name={service.name} price={service.price} btnName="Book" onDelete={deleteItem} />)
 
 
             })

@@ -2,24 +2,13 @@ import React, { useState, useEffect } from 'react'
 
 import { Link } from 'react-router-dom'
 
-function Navbar() {
+function Navbar(props) {
 
     const [jwt, setJwt] = useState();
     const[role, setRole]=useState("");
     const token = localStorage.getItem("jwt");
-   const [bookingCount,setCount]= useState(0);
+   console.log(props.count);
     
-
-
-useEffect(()=>{
- const count=localStorage.getItem("numberOfBooking");
-    setCount(count);
- 
-},[]);
-
-
-
-
     useEffect(() => {
 
         setJwt(token);
@@ -48,7 +37,7 @@ useEffect(()=>{
                 <Link className="p-4" to="/services">Our Services</Link>
                 <Link className="p-4" to="/about">About Us</Link>
                 <Link className="p-4" to="/myBooking">My Booking
-                <span className="p-1">({bookingCount})</span>
+                <span className="p-1">({props.count})</span>
                 </Link>
                 {/*Person with role admin can see Add new service */}
 {(role==="admin")&&<Link className="p-4" to="/addService">Add Service</Link> }

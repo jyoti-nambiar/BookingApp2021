@@ -40,7 +40,7 @@ app.post('/create-checkout-session', async (req, res) => {
       },
     ],
     mode: 'payment',
-    success_url: 'https://pik-span-strapi.herokuapp.com/services',
+    success_url: 'https://spikspan-app.herokuapp.com/services',
     cancel_url: 'https://bookingappstripe2021.herokuapp.com/cancel',
 
     });

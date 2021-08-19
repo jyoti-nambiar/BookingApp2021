@@ -36,7 +36,7 @@ fetchData();
 
     return (
 
-    <div className="grid grid-cols-3 gap-10 content-evenly m-10   ">
+    <div className="grid grid-cols-3 gap-10 content-evenly m-10 min-h-screen">
        
 {bookings.map( (booking)=>{
     console.log(booking);

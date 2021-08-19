@@ -6,11 +6,13 @@ import Card from './Card'
 function CardList() {
     const [products, setProduct] = useState([]);
     const [loadMore, setLoadMore] = useState(6);
-    const [cardDelete, setcardDelete]=useState(false);
+    const [cardUpdate, setcardUpdate]=useState(true);
     const [loading, setLoading]=useState(true);
     const token=localStorage.getItem("jwt");
     const userId=localStorage.getItem("userId");
     useEffect(() => {
+if(cardUpdate){
+
         const fetchProduct = async () => {
             
             const response = await axios.get(`https://pik-span-strapi.herokuapp.com/products?_limit=${loadMore}`);
@@ -23,7 +25,10 @@ function CardList() {
         }
         fetchProduct();
 
-    }, [loadMore]);
+    }
+setcardUpdate(false);
+
+}, [loadMore, cardUpdate]);
 
     function loadMoreService() {
         let dynamicAdd = loadMore + 3;
@@ -53,16 +58,19 @@ axios.delete(`https://pik-span-strapi.herokuapp.com/products/${id}?users_permiss
      });
     
     }
+    
+if(products.length==0){
+       
+        <p>loading....</p>
+    }
+    
 
     return (
         <div className="grid grid-cols-3 gap-10 content-evenly m-10   ">
-{(products!==true )&&
-<p>loading...</p>
-}
+
             {products.map((service) => {
 
-                
-                return (<Card key={service.id} serviceId={service.id} image={service.image} description={service.description} name={service.name} price={service.price} btnName="Book" onDelete={deleteItem} />)
+                return (<Card key={service.id} serviceId={service.id} image={service.image} description={service.description} name={service.name} price={service.price} btnName="Book" stateChange={setcardUpdate} />)
 
 
             })

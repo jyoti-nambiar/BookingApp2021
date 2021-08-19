@@ -6,13 +6,15 @@ import BookingCard from './BookingCard';
 function MyBooking() {
 
 const [bookings, setBookings] = useState([]);
-const[deleteCard, setDeleteCard]=useState(false);
-const[bookingcardCount, setbookingcardCount]=useState(0);
+const[cardUpdate, setCardUpdate]=useState(true);
 const userId=localStorage.getItem("userId");
 const token=localStorage.getItem("jwt");
 
 //fetch data from strapi
   useEffect(()=>{
+
+if(cardUpdate){
+
 const fetchData= async ()=>{
 
 const response=await axios.get(`https://pik-span-strapi.herokuapp.com/user-bookings?users_permissions_user.id=${userId}`, {
@@ -23,7 +25,7 @@ const response=await axios.get(`https://pik-span-strapi.herokuapp.com/user-booki
 //console.log("data it is",response.data);
 
 let count= (response.data).length;
-setbookingcardCount(count);
+
 localStorage.setItem("numberOfBooking", count);
 setBookings(response.data);
 
@@ -31,7 +33,10 @@ setBookings(response.data);
 
 fetchData();
 
-    }, [deleteCard]);
+   }
+  
+   setCardUpdate(false);
+  }, [deleteCard]);
 
 
     return (
@@ -40,7 +45,7 @@ fetchData();
        
 {bookings.map( (booking)=>{
     console.log(booking);
- return(<><BookingCard key={booking.id} cardId={booking.id} image={booking.img }product={booking.product.name} date={booking.date} time={booking.time} price={booking.price} changeState={(cardDelete)=>{setDeleteCard(cardDelete)}} />
+ return(<><BookingCard key={booking.id} cardId={booking.id} image={booking.img }product={booking.product.name} date={booking.date} time={booking.time} price={booking.price} changeState={setCardUpdate} />
 
 </>
    ); 

@@ -21,7 +21,6 @@ const initialValues = {
 
 
 const token=localStorage.getItem("jwt");
-const [btnClicked, setBtnClicked]= useState(false);
 const [modalIsOpen, setIsOpen] = useState(false);
 const [formValues, setFormValues] = useState(initialValues);
  const [modalOpenReschedule, setIsOpenReschedule] = useState(false);
@@ -36,15 +35,12 @@ axios.delete(`https://pik-span-strapi.herokuapp.com/user-bookings/${cardId}`, {
     }}).then(res=>{console.log(res);
 
 //passing value from child to parent via props for re-rendering of parent elements
-      setTimeout(() => {
-     changeState(btnClicked)
+     
+     changeState(true);
     
-    }, 5000)
- 
-
-     });
+    })
     
-    }
+  }
 //reschedule (update request)
 function reschedule(e){
   e.preventDefault();
@@ -52,9 +48,10 @@ axios.put(`https://pik-span-strapi.herokuapp.com/user-bookings/${cardId}`, {
             date: formValues.date,
             time: formValues.time
 
-    }).then((res)=>{console.log("response for reschedule", res);
+    }).then((res)=>{
+    changeState(true);
   closeModalReschedule();
-window.location.reload();})
+})
 
 }
 //modal for reschedule

@@ -3,7 +3,7 @@ import React, { useState} from 'react'
 import Modal from 'react-modal';
 import ButtonRed from './ButtonRed';
 import ButtonGreen from './ButtonGreen';
-function Card({ serviceId, image, name, price, btnName, description, onDelete}) {
+function Card({ serviceId, image, name, price, btnName, description, stateChange}) {
 const initialValues = {
 
         serviceName: "",
@@ -118,7 +118,10 @@ function openModalDelete() {
 
 
 //delete function
- const deleteItem = () => onDelete(serviceId);
+ const deleteItem = () => {onDelete(serviceId);
+    stateChange(true);
+ }
+ 
 
 
 //Update Function
@@ -152,7 +155,10 @@ axios.put(`https://pik-span-strapi.herokuapp.com/products/${serviceId}?users_per
             data.append("field", "image")// which field it refers to in the db
 
             axios.put("https://pik-span-strapi.herokuapp.com/upload", data
-            ).then((res) => { console.log(res) }).catch((err) => { console.log(err) })
+            ).then((res) => { console.log(res) 
+            
+            stateChange(true);
+            }).catch((err) => { console.log(err) })
 
 
         }).catch((err) => console.log(err));

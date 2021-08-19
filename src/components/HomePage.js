@@ -7,7 +7,7 @@ function HomePage() {
     return (
         <>
             <div style={{
-                backgroundImage: url("https://res.cloudinary.com/spik-span/image/upload/v1624387322/bookingapp/jdvi46fslkho3g76twlk.jpg"),
+                backgroundImage: `url("https://res.cloudinary.com/spik-span/image/upload/v1624387322/bookingapp/jdvi46fslkho3g76twlk.jpg")`,
 
                 backgroundRepeat: 'no-repeat',
                 backgroundPosition: 'center',

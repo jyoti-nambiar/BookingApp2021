@@ -5,24 +5,14 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer'
 
 function App() {
- const bookingCount= useRef(0);
+ 
 
 
-
-
-
-
-
-useEffect(()=>{
- bookingCount.current=1;
-    
-
-})
 
 
   return (
     <>
-      <Navbar count={bookingCount} />
+      <Navbar/>
       <AppRoute />
       <Footer />
     </>

@@ -70,7 +70,7 @@ if(products.length==0){
 
             {products.map((service) => {
 
-                return (<Card key={service.id} serviceId={service.id} image={service.image} description={service.description} name={service.name} price={service.price} btnName="Book" stateChange={setcardUpdate} />)
+                return (<Card key={service.id} serviceId={service.id} image={service.image} description={service.description} name={service.name} price={service.price} btnName="Book" stateChange={setcardUpdate} deleteService={deleteItem} />)
 
 
             })

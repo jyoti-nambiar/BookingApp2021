@@ -3,7 +3,7 @@ import React, { useState} from 'react'
 import Modal from 'react-modal';
 import ButtonRed from './ButtonRed';
 import ButtonGreen from './ButtonGreen';
-function Card({ serviceId, image, name, price, btnName, description, stateChange}) {
+function Card({ serviceId, image, name, price, btnName, description, stateChange, deleteService}) {
 const initialValues = {
 
         serviceName: "",
@@ -118,7 +118,7 @@ function openModalDelete() {
 
 
 //delete function
- const deleteItem = () => {onDelete(serviceId);
+ const deleteItem = () => {deleteService(serviceId);
     stateChange(true);
  }
  

@@ -36,7 +36,7 @@ fetchData();
    }
   
    setCardUpdate(false);
-  }, [deleteCard]);
+  }, [cardUpdate]);
 
 
     return (

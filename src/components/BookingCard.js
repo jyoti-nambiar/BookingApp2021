@@ -26,7 +26,7 @@ const [formValues, setFormValues] = useState(initialValues);
  const [modalOpenReschedule, setIsOpenReschedule] = useState(false);
 
     function deleteFunc(){
-      setBtnClicked(true);   
+     
    
 axios.delete(`https://pik-span-strapi.herokuapp.com/user-bookings/${cardId}`, {
     headers: {

@@ -56,9 +56,9 @@ axios.delete(`https://pik-span-strapi.herokuapp.com/products/${id}?users_permiss
 
     return (
         <div className="grid grid-cols-3 gap-10 content-evenly m-10   ">
-{loading &&
-<p>loading...</p>}
-
+{(products!==true )&&
+<p>loading...</p>
+}
             {products.map((service) => {
 
                 

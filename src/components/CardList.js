@@ -38,7 +38,7 @@ setcardUpdate(false);
     }
 
     function loadLessService() {
-        let dynamicReduce = loadMore - 6;
+        let dynamicReduce = loadMore - 3;
         setLoadMore(dynamicReduce);
 
 
